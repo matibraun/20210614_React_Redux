@@ -2,14 +2,19 @@ import React, { Component } from 'react';
 
 class Container1 extends Component {
 
+    state = { 
+        value: '',
+    }
 
-    handleChange = (event) => (
-        console.log(event.target.value)
-    )
+    handleChange = (event) => {
+        console.log(event.target.value  )
+        this.setState({value: event.target.value})
+    }
 
     handleSubmit = (event) => {
         event.preventDefault()
-        console.log(event.target.name.value)
+        console.log(this.state.value)
+        this.setState({value: ''})
 
     }
 
@@ -17,8 +22,13 @@ class Container1 extends Component {
         return (
             <div>
             <form onSubmit={this.handleSubmit}>
+                {this.state.value}
                 <label> Name </label>
-                <input id='name' onChange={this.handleChange} type='text'/>
+                <input
+                id='name'
+                onChange={this.handleChange}
+                type='text' value={this.state.value}
+                placeholder="name input..."/>
                 <button type='submit'> Submit </button>
             </form>
             </div>

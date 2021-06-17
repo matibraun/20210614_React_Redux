@@ -5,7 +5,7 @@ function App() {
 
   return (
     <div className="App">
-      <Container1/>
+      React
     </div>
   );
 }
